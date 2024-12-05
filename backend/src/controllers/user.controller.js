@@ -22,13 +22,13 @@ const generateAccessAndRefreshTokens = async (userId) => {
 
 const registerUser = asyncHandler(async (req, res) => {
   const { fullName, email, password } = req.body;
-  console.log("request",req.body)
+  console.log("request", req.body)
 
   if ([fullName, email, password].some((field) => field?.trim() === "")) {
     throw new ApiError(400, "All fields are required");
   }
 
-  const existedUser = await User.findOne({email});
+  const existedUser = await User.findOne({ email });
 
   if (existedUser) {
     throw new ApiError(409, "User with email or username already exists");
@@ -59,7 +59,7 @@ const loginUser = asyncHandler(async (req, res) => {
     throw new ApiError(400, "username and email is required");
   }
 
-  const user = await User.findOne({email});
+  const user = await User.findOne({ email });
 
   if (!user) {
     throw new ApiError(400, "user or email not exist");
@@ -83,7 +83,7 @@ const loginUser = asyncHandler(async (req, res) => {
     httpOnly: true,
     secure: true,
   };
-  
+
   return res
     .status(200)
     .cookie("accessToken", accessToken, options)

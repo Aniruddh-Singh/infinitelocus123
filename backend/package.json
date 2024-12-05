@@ -7,8 +7,7 @@
   "scripts": {
     "dev": "nodemon -r dotenv/config --experimental-json-modules src/index.js"
   },
-  "keywords": [
-  ],
+  "keywords": [],
   "author": "deepak verma",
   "license": "ISC",
   "devDependencies": {

@@ -26,30 +26,30 @@ const Login = () => {
 
         try {
             if (isSignForm) {
-                console.log("email:",emailValue)
-                console.log("password:",passwordValue)
+                console.log("email:", emailValue)
+                console.log("password:", passwordValue)
                 const res = await axios.post("http://localhost:8000/api/v1/users/login", {
                     email: emailValue,
                     password: passwordValue,
-                  });
-                  const user = {
+                });
+                const user = {
                     email: emailValue,
                     fullName: nameValue,
-                  };
-                  console.log("values after signin",res)
+                };
+                console.log("values after signin", res)
             } else {
-                console.log("email:",emailValue)
-                console.log("password:",passwordValue)
+                console.log("email:", emailValue)
+                console.log("password:", passwordValue)
                 const res = await axios.post("http://localhost:8000/api/v1/users/register", {
                     email: emailValue,
                     password: passwordValue,
                     fullName: nameValue,
-                  });
-                  const user = {
+                });
+                const user = {
                     email: emailValue,
                     fullName: nameValue,
-                  };
-                  console.log("values after registration",res)
+                };
+                console.log("values after registration", res)
             }
 
             navigate("/main");
